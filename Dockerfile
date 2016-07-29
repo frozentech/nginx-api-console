@@ -22,7 +22,7 @@ RUN mkdir -p $RAML_DIR
 
 # Point the raml-console-loader to the raml/api.raml
 RUN sed -i \
- "s|<raml-initializer></raml-initializer>|<raml-console-loader src="$AC_MAIN_FILE" disable-theme-switcher disable-raml-client-generator></raml-console-loader>|g" \
+ "s|<raml-initializer></raml-initializer>|<raml-console-loader src=\"$AC_MAIN_FILE\" disable-theme-switcher disable-raml-client-generator></raml-console-loader>|g" \
  index.html
 
 # Do some cleanup
