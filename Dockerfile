@@ -14,14 +14,13 @@ RUN \
 # Download and install https://github.com/gianebao/api-console
 RUN \
  git clone https://github.com/gianebao/api-console &&\
- cp -r /api-console/dist /usr/share/nginx/html/api-console
+ mv /api-console/dist/* /usr/share/nginx/html
 
-WORKDIR /usr/share/nginx/html/api-console
-
-RUN mkdir -p $RAML_DIR
+WORKDIR /usr/share/nginx/html
 
 # Point the raml-console-loader to the raml/api.raml
-RUN sed -i \
+RUN mkdir -p $RAML_DIR &&\
+ sed -i \
  "s|<raml-initializer></raml-initializer>|<raml-console-loader src=\"$AC_MAIN_FILE\" disable-theme-switcher disable-raml-client-generator></raml-console-loader>|g" \
  index.html
 
