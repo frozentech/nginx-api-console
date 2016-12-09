@@ -12,7 +12,7 @@ RUN \
  apt-key add nginx_signing.key
 
 RUN \
- apt-get update &&\
+ apt-get update && apt-get upgrade\
  apt-get -y --no-install-recommends install git &&\
  apt-get autoclean && apt-get clean && apt-get autoremove
 
