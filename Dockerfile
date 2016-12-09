@@ -6,10 +6,10 @@ ENV AC_MAIN_FILE $AC_MAIN_DIR/api.raml
 
 WORKDIR /
 
-ADD nginx-signing-key/09122016.key nginx-signing.key
+ADD nginx-signing-key nginx-signing-key
 
 RUN \
- apt-key add nginx_signing.key
+ apt-key add nginx-signing-key/09122016.key
 
 RUN \
  apt-get update && apt-get upgrade\
