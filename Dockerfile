@@ -6,10 +6,18 @@ ENV AC_MAIN_FILE $AC_MAIN_DIR/api.raml
 
 WORKDIR /
 
+ADD nginx-signing-key/09122016.key nginx-signing.key
+
+RUN \
+ apt-key add nginx_signing.key
+
 RUN \
  apt-get update &&\
  apt-get -y --no-install-recommends install git &&\
  apt-get autoclean && apt-get clean && apt-get autoremove
+
+RUN \
+ apt-get install curl
 
 # Download and install https://github.com/gianebao/api-console
 RUN \
