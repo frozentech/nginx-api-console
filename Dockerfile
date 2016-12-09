@@ -12,9 +12,9 @@ RUN \
  apt-key add nginx-signing-key/09122016.key
 
 RUN \
- apt-get update && apt-get upgrade\
+ apt-get update && apt-get -y upgrade &&\
  apt-get -y --no-install-recommends install git &&\
- apt-get -y --no-install-recommends install curl &&\
+ apt-get -y install curl &&\
  apt-get autoclean && apt-get clean && apt-get autoremove
 
 # Download and install https://github.com/gianebao/api-console
